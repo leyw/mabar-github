@@ -17,8 +17,4 @@ class CoffeeShop:
 coffeeshop = CoffeeShop()
 cappucino_coffee = Cappucino.Cappucino()
 
-coffeeshop.register("cappucino", cappucino_coffee.serve)
-
-print(
-    coffeeshop.serve("cappucino")
-)
+coffeeshop.register("cappucino", cappucino_coffee.serve())
