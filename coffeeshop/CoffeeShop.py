@@ -4,9 +4,10 @@ class CoffeeShop:
 
     _recipes = []
 
-    def register( self, coffeeName, make ):
-        self._recipes[coffeeName] = make     
+    def register( self, coffeeName : str, make ):
+        self._recipes.append = make     
 
 coffeeshop = CoffeeShop()
+cappucino_coffee = Cappucino.Cappucino()
 
-coffeeshop.register('cappucino', Cappucino())
+coffeeshop.register("cappucino", cappucino_coffee.serve)

@@ -1,5 +1,4 @@
-from coffeeshop import CoffeeShop
-
-class Cappucino(CoffeeShop):
+class Cappucino:
     def serve():
         return "This is ur Cappucino"
+    
