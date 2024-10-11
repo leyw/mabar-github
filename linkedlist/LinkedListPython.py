@@ -1,47 +1,84 @@
 class Node:
-
-    # Node[value | next]
     def __init__(self, value) -> None:
         self.value = value
         self.next = None
 
 class Linked:
-
-    # _Node = None
     def __init__(self):
-        self._Node = None
+        self._Head = None
 
 
-    def insert(self, value):
-        # Return Explaination
-        # case: value = 5
+    def addend(self, value):
         
-        # node = Node[value | next]
         node = Node(value)
-        # node = Node[5 | next]
 
-        # This conditional code only executed when
-        # the first node is inserted, just imagine if
-        # _Node == None
-        if self._Node is None:
-            
-            # _Node = node (node = Node[5 | next])
-            self._Node = node
-            return self._Node
+        if self._Head is None:
+            self._Head = node
+            return
+        
+        current = self._Head
 
-        # This code executed if there is a first node
-        # just imagine if the first node is
-        # _Node = node (node = Node[6 | next])
-        # node = Node[5 | next]
-        # node.next = next
-        node.next = self._Node
-        # node.next = _Node
-        # node = Node[5 | _Node] (_Node = node (node = Node[6 | next]))
+        while current is not None and current.next is not None:
+            current = current.next
 
-        # _Node = node
-        self._Node = node
+        current.next = node
+
+    def adding(self, value):
+
+        node = Node(value)
+
+        if self._Head is None:
+            self._Head = node
+            return
+        
+        node.next = self._Head
+
+        self._Head = node
+
+    def addet(self, value, target):
+
+        node = Node(value)
+
+        if self._Head is None:
+            self._Head = node
+            return
+        
+        current = self._Head
+
+        while current is not None and current.value is not target:
+            current = current.next
+
+        node.next = current.next
+
+        current.next = node
+
+    def delete(self, target):
+
+        prev = None
+        current = self._Head
+
+        while current is not None and current.value is not target:
+            prev = current
+            current = current.next
+
+        if current is None:
+            return
+
+        if prev is None:
+            self._Head = current.next
+        else:
+            prev.next = current.next
+        
+        del current
 
 list = Linked()
 
-list.insert(19)
-list.insert(20)
+list.adding(40)
+list.addend(20)
+list.adding(30)
+list.addet(50, 30)
+
+print(list._Head.value)
+print(list._Head.next.value)
+print(list._Head.next.next.value)
+print(list._Head.next.next.next.value)
