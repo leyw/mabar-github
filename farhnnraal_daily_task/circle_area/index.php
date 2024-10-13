@@ -18,9 +18,21 @@
 
     <?php
 
-        // $jari_jari = isset($_POST['jarijari']) ? $_POST['jarijari'] : 0;
-        $luas = 3.14 * pow(isset($_POST['jarijari']) ? $_POST['jarijari'] : 0, 2);
-        echo "Luas lingkarannya: $luas";
+        function countArea( $jari_jari )
+        {
+            $luas = 3.14 * pow($jari_jari, 2);
+            echo "Luas lingkarannya dari jari-jari = $jari_jari adalah: $luas";
+        }
+
+        $jari_jari = isset($_POST['jarijari']) ? $_POST['jarijari'] : 0;
+
+        if ($jari_jari != NULL)
+        {
+            countArea( $jari_jari );    
+        } else
+        {
+            echo "Angka nya mana le?";
+        }
 
     ?>
 </body>
